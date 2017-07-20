@@ -48,7 +48,7 @@ enum BulletObjectType
 class BulletObjectBase : public LogicComponent
 {
 
-    OBJECT(BulletObjectBase);
+  URHO3D_OBJECT(BulletObjectBase, LogicComponent);
 
 public:
     BulletObjectBase(Context* context);
@@ -71,7 +71,7 @@ protected:
 //Low Level Bullet Object
 class LowLevelBullet : public BulletObjectBase
 {
-    OBJECT(LowLevelBullet);
+  URHO3D_OBJECT(LowLevelBullet, BulletObjectBase);
 
 public:
     LowLevelBullet(Context* context);
@@ -87,7 +87,7 @@ private:
 //Weapon Base Class
 class WeaponObjectBase : public Object
 {
-    OBJECT(WeaponObjectBase);
+  URHO3D_OBJECT(WeaponObjectBase, Object);
 
 public:
     WeaponObjectBase(Context *context, Node* refNode);
@@ -100,7 +100,7 @@ public:
 //Ordinary Weapon
 class OrdinaryWeapon : public WeaponObjectBase
 {
-    OBJECT(OrdinaryWeapon);
+  URHO3D_OBJECT(OrdinaryWeapon, WeaponObjectBase);
 
 public:
     OrdinaryWeapon(Context* context,Node* refNode);
@@ -115,7 +115,7 @@ public:
 
 class ExplosionObjectBase : public LogicComponent
 {
-    OBJECT(ExplosionObjectBase);
+  URHO3D_OBJECT(ExplosionObjectBase, LogicComponent);
 
 public:
     ExplosionObjectBase(Context* context);
@@ -132,7 +132,7 @@ protected:
 class SimpleExplosion : public ExplosionObjectBase
 {
 
-    OBJECT(SimpleExplosion);
+  URHO3D_OBJECT(SimpleExplosion, ExplosionObjectBase);
 
 public:
     SimpleExplosion(Context* context);
@@ -147,7 +147,7 @@ private:
 
 class PlayerObject : public LogicComponent
 {
-    OBJECT(PlayerObject);
+  URHO3D_OBJECT(PlayerObject, LogicComponent);
 
 public:
     PlayerObject(Context* context);
@@ -171,7 +171,7 @@ private:
 
 class DroneObjectBase : public LogicComponent
 {
-  OBJECT(DroneObjectBase);
+  URHO3D_OBJECT(DroneObjectBase, LogicComponent);
 
 public:
     DroneObjectBase(Context* context);
@@ -201,7 +201,7 @@ protected:
 class LowLevelDrone : public DroneObjectBase
 {
 
-    OBJECT(LowLevelDrone);
+  URHO3D_OBJECT(LowLevelDrone, DroneObjectBase);
 
 public:
     LowLevelDrone(Context* context);

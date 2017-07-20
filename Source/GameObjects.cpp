@@ -60,8 +60,8 @@ PlayerObject::PlayerObject(Context* context):
 
 void PlayerObject::DelayedStart()
 {
-    SubscribeToEvent(E_ACTIVATEWEAPON, HANDLER(PlayerObject, HandleActivateWeapon));
-    SubscribeToEvent(E_PLAYERROTATION, HANDLER(PlayerObject, HandlePlayerRotation));
+  SubscribeToEvent(E_ACTIVATEWEAPON, URHO3D_HANDLER(PlayerObject, HandleActivateWeapon));
+    SubscribeToEvent(E_PLAYERROTATION, URHO3D_HANDLER(PlayerObject, HandlePlayerRotation));
     Initialise();
 }
 
@@ -145,7 +145,7 @@ void PlayerObject::OnHit(float damagePoint)
     float healthFraction = currentHealth_ / maximumHealth_;
 
     VariantMap eventData;
-    eventData[P_CURRENTHEALTHFRACTION] = healthFraction;
+    eventData[PlayerHealthUpdate::P_CURRENTHEALTHFRACTION] = healthFraction;
 
     SendEvent(E_PLAYERHIT, eventData);
 
@@ -167,7 +167,7 @@ void DroneObjectBase::OnHit(float damagePoint)
 
 void DroneObjectBase::DelayedStart()
 {
-    SubscribeToEvent(GetNode(), E_NODECOLLISION, HANDLER(DroneObjectBase, HandleNodeCollision));
+    SubscribeToEvent(GetNode(), E_NODECOLLISION, URHO3D_HANDLER(DroneObjectBase, HandleNodeCollision));
     Initialise();
 }
 
@@ -360,7 +360,7 @@ BulletObjectBase::BulletObjectBase(Context *context)
 
 void BulletObjectBase::DelayedStart()
 {
-    SubscribeToEvent(GetNode(), E_NODECOLLISION, HANDLER(BulletObjectBase, HandleNodeCollision));
+    SubscribeToEvent(GetNode(), E_NODECOLLISION, URHO3D_HANDLER(BulletObjectBase, HandleNodeCollision));
     Initialise();
 }
 
